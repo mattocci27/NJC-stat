@@ -1,4 +1,4 @@
-# Introduction to visualization using ggplotw
+# Introduction to visualization using ggplot2
 
 This repository contains the material for the NJC stat seminar.
 

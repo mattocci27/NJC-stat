@@ -146,7 +146,7 @@ class: font_smaller
 &lt;code class ='r hljs remark-code'&gt;ggplot(&lt;span style='background-color:#2196F3'&gt;data&lt;/span&gt; = dat, &lt;span style='background-color:#FF9800'&gt;aes&lt;/span&gt;(x = DE))&lt;/code&gt;
 
 
-&lt;img src="figure/unnamed-chunk-34-1.png" width="216" style="display: block; margin: auto;" /&gt;
+&lt;img src="figure/unnamed-chunk-36-1.png" width="216" style="display: block; margin: auto;" /&gt;
 
 
 
@@ -155,7 +155,7 @@ class: font_smaller
 &lt;code class ='r hljs remark-code'&gt;ggplot(&lt;span style='background-color:#2196F3'&gt;data&lt;/span&gt; = dat, &lt;span style='background-color:#FF9800'&gt;aes&lt;/span&gt;(x = DE, y = LMA))&lt;/code&gt;
 
 
-&lt;img src="figure/unnamed-chunk-35-1.png" width="288" style="display: block; margin: auto;" /&gt;
+&lt;img src="figure/unnamed-chunk-37-1.png" width="288" style="display: block; margin: auto;" /&gt;
 
 :::
 
@@ -645,7 +645,7 @@ scale\_.bg-yellow[&amp;lt;aesthetics&amp;gt;]\_.bg-yellow[&amp;lt;type&amp;gt;]
 
 ```r
 p &lt;- ggplot(dat |&gt; filter(!is.na(DE)), 
-            aes(x = DE, y = LMA, fill = DE)) + geom_boxplot() 
+            aes(x = DE, y = LMA, fill = DE)) + geom_boxplot() + scale_y_log10()
 ```
 
 
@@ -676,8 +676,7 @@ my_col|&gt; scales::show_col()
 
 ```r
 p +  
-  scale_fill_manual(values = my_col[1:2]) +
-  scale_y_log10()
+  scale_fill_manual(values = my_col[1:2])
 ```
 
 &lt;img src="figure/unnamed-chunk-21-1.png" width="288" style="display: block; margin: auto;" /&gt;
@@ -697,7 +696,7 @@ Labels modify axis, legend and plot labels
 &lt;code class ='r hljs remark-code'&gt;ggplot(dat |&gt; filter(!is.na(Aarea)),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;aes(x = LMA, y = Nmass, col = Aarea)) + geom_point() +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_y_log10() + scale_x_log10() +&lt;br&gt;&amp;nbsp;&amp;nbsp;scale_color_continuous(name = expression(A[area]~(u*mol~m^-2~s^1)), &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;trans = "log10") +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;labs&lt;/span&gt;(y = expression(N[mass]~(`%`)), x = expression(LMA~(g~m^-2)),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;title = "Fig. 1")&lt;/code&gt;
 
 
-&lt;img src="figure/unnamed-chunk-36-1.png" width="468" style="display: block; margin: auto;" /&gt;
+&lt;img src="figure/unnamed-chunk-38-1.png" width="468" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1089,7 +1088,7 @@ class: font_smaller2
 &lt;code class ='r hljs remark-code'&gt;ggplot(&lt;span style='background-color:#ffff7f'&gt;data&lt;/span&gt; = dat2, &lt;span style='background-color:#ffff7f'&gt;aes&lt;/span&gt;(x = value, fill = DE, col = DE)) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;geom&lt;/span&gt;_histogram(position = "identity", alpha = 0.6) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;scale_color&lt;/span&gt;_manual(values = my_col[1:2], name = "Leaf habit") +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;scale_fill&lt;/span&gt;_manual(values = my_col[1:2], name = "Leaf habit") +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;scale_x&lt;/span&gt;_log10() +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;facet&lt;/span&gt;_wrap(~ name, scale = "free", &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;labeller = label_parsed, nrow = 1) +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;labs&lt;/span&gt;(x = "Trait values", y = "Count") +&lt;br&gt;&amp;nbsp;&amp;nbsp;&lt;span style='background-color:#ffff7f'&gt;theme&lt;/span&gt;(strip.text = element_text(size = 16),&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;legend.position = "top")&lt;/code&gt;
 
 
-&lt;img src="figure/unnamed-chunk-37-1.png" width="1080" style="display: block; margin: auto;" /&gt;
+&lt;img src="figure/unnamed-chunk-39-1.png" width="1080" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1119,6 +1118,17 @@ largefontthm &lt;- theme_bw() + theme(
 theme_set(largefontthm)
 ```
 
+---
+
+# Exercise 1: scatter plot
+
+&lt;img src="figure/unnamed-chunk-34-1.png" width="576" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Exercise 2: density plot
+
+&lt;img src="figure/unnamed-chunk-35-1.png" width="576" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>

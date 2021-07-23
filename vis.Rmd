@@ -639,7 +639,7 @@ my_col|> scales::show_col()
 
 ```{r  fig.height = 3.5, fig.width = 4}
 p +  
-  scale_fill_manual(values = my_col[1:2]) +
+  scale_fill_manual(values = my_col[1:2])
 ```
 
 ---
@@ -1064,3 +1064,27 @@ largefontthm <- theme_bw() + theme(
 theme_set(largefontthm)
 ```
 
+---
+
+# Exercise 1: scatter plot
+
+```{r, echo=FALSE, fig.width = 8, fig.height = 6}
+dat |>
+  ggplot(aes(x = Nmass, y = Aarea / LMA * 100, col = DE, size = log10(LMA))) +
+  geom_point(alpha = 0.6) +
+  scale_x_log10() +
+  scale_y_log10() +
+  largefontthm
+```
+
+---
+
+# Exercise 2: density plot
+
+```{r, echo=FALSE, fig.width = 8, fig.height = 6}
+dat |>
+  ggplot(aes(x = LMA, fill = DE)) +
+  geom_density(alpha = 0.6) +
+  scale_x_log10() +
+  largefontthm
+```
